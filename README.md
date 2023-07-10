@@ -1,4 +1,4 @@
-## Deploy commands
+## Build & deploy cycle commands
 
 Recycle account: 
 ```
@@ -26,6 +26,15 @@ Check contract state:
 near view-state contract.scxtt.testnet --finality final
 ```
 
+## Unit tests
+Test
+```
+cargo test
+```
+
+
+## String & Vec
+
 change_string_vec:
 ```
 near call contract.scxtt.testnet change_string_vec '{"string": "stuff", "number": 2}' --accountId scxtt.testnet
@@ -48,12 +57,30 @@ get_vector_index:
 ```
 near view contract.scxtt.testnet get_vector_index '{"index": 0}'
 ```
-	
-map_insert:
+
+## UnorderedMap<String, String>
+
+unordered_map_insert:
 ```
-near call contract.scxtt.testnet map_insert '{"key": "account 2", "value": "0x1234"}' --accountId scxtt.testnet
+near call contract.scxtt.testnet unordered_map_insert '{"key": "account 2", "value": "0x1234"}' --accountId scxtt.testnet
 ```
-get_map_value:
+get_unordered_map_value:
 ```
-near view contract.scxtt.testnet get_map_value '{"key": "account 2"}'
+near view contract.scxtt.testnet get_unordered_map_value '{"key": "account 2"}'
+```
+
+
+## UnorderedMap<String, Vector<String>>
+
+unordered_map_vec_init:
+```
+near call contract.scxtt.testnet unordered_map_vec_init '{"key": "account 3"}' --accountId scxtt.testnet
+```
+unordered_map_vec_insert:
+```
+near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_value": "slide 2"}' --accountId scxtt.testnet
+```
+unordered_map_vec_get:
+```
+near view contract.scxtt.testnet unordered_map_vec_get '{"key": "account 3"}'
 ```
