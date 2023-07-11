@@ -3,7 +3,7 @@
 Recycle account: 
 ```
 near delete contract.scxtt.testnet scxtt.testnet                                                 
-near create-account contract.scxtt.testnet --masterAccount scxtt.testnet --initialBalance 4
+near create-account contract.scxtt.testnet --masterAccount scxtt.testnet --initialBalance 5
 ```
 
 Compile contract:
@@ -78,9 +78,9 @@ near call contract.scxtt.testnet unordered_map_vec_init '{"key": "account 3"}' -
 ```
 unordered_map_vec_insert:
 ```
-near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_value": "slide 2"}' --accountId scxtt.testnet
+near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_value": "slide 3"}' --accountId scxtt.testnet
 ```
-unordered_map_vec_get:
+unordered_map_vec_get_ser:
 ```
-near view contract.scxtt.testnet unordered_map_vec_get '{"key": "account 3"}'
+near view contract.scxtt.testnet unordered_map_vec_get_ser '{"key": "account 3"}'
 ```
