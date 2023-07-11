@@ -80,17 +80,17 @@ impl Contract {
     }
 
     // returns unserialized vector
-    pub fn unordered_map_vec_get(&self, key: String) -> Option<Vector<String>> {
-        if let Some(nested) = self.unordered_map_vec.get(&key) {
-            let mut vec = near_sdk::store::Vector::new(b"d".to_vec());
-            for element in nested.iter() {
-                vec.push(element.clone());
-            }
-            Some(vec)
-        } else {
-            None
-        }
-    }
+    // pub fn unordered_map_vec_get(&self, key: String) -> Option<Vector<String>> {
+    //     if let Some(nested) = self.unordered_map_vec.get(&key) {
+    //         let mut vec = near_sdk::store::Vector::new(b"d".to_vec());
+    //         for element in nested.iter() {
+    //             vec.push(element.clone());
+    //         }
+    //         Some(vec)
+    //     } else {
+    //         None
+    //     }
+    // }
     
     // returns seriliazed vector as string
     pub fn unordered_map_vec_get_ser(&self, key: String) -> Option<String> {
@@ -156,23 +156,23 @@ mod tests {
         assert_eq!(contract.get_unordered_map_value("Account 1".to_string()), "0xABCD".to_string());
     }
 
-    #[test]
-    fn test_unordered_map_vec() {
-        let mut contract: Contract = Contract::default();
-        contract.unordered_map_vec_init("Account 3".to_string());
+    // #[test]
+    // fn test_unordered_map_vec() {
+    //     let mut contract: Contract = Contract::default();
+    //     contract.unordered_map_vec_init("Account 3".to_string());
         
-        contract.unordered_map_vec_insert("Account 3".to_string(), "insert 1".to_string());
-        println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(0).unwrap());
-        assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(0).unwrap()), "insert 1".to_string());
+    //     contract.unordered_map_vec_insert("Account 3".to_string(), "insert 1".to_string());
+    //     println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(0).unwrap());
+    //     assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(0).unwrap()), "insert 1".to_string());
         
-        contract.unordered_map_vec_insert("Account 3".to_string(), "insert 2".to_string());
-        println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(1).unwrap());
-        assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(1).unwrap()), "insert 2".to_string());
+    //     contract.unordered_map_vec_insert("Account 3".to_string(), "insert 2".to_string());
+    //     println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(1).unwrap());
+    //     assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(1).unwrap()), "insert 2".to_string());
         
-        contract.unordered_map_vec_insert("Account 3".to_string(), "insert 3".to_string());
-        println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(2).unwrap());
-        assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(2).unwrap()), "insert 3".to_string());
-    }
+    //     contract.unordered_map_vec_insert("Account 3".to_string(), "insert 3".to_string());
+    //     println!("{}", contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(2).unwrap());
+    //     assert_eq!(*(contract.unordered_map_vec_get("Account 3".to_string()).unwrap().get(2).unwrap()), "insert 3".to_string());
+    // }
 
     #[test]
     fn get_ser_vec() {
