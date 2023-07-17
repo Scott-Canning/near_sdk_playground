@@ -31,6 +31,9 @@ Test
 ```
 cargo test
 ```
+```
+cargo test -- --nocapture
+```
 
 
 ## String & Vec
@@ -79,6 +82,10 @@ near call contract.scxtt.testnet unordered_map_vec_init '{"key": "account 3"}' -
 unordered_map_vec_insert:
 ```
 near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_value": "slide 3"}' --accountId scxtt.testnet
+```
+unordered_map_vec_extend
+```
+near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_values": ["slide 4", "slide 5", "slide 6"]}' --accountId scxtt.testnet
 ```
 unordered_map_vec_get_ser:
 ```
