@@ -77,17 +77,17 @@ near view contract.scxtt.testnet get_unordered_map_value '{"key": "account 2"}'
 
 unordered_map_vec_init:
 ```
-near call contract.scxtt.testnet unordered_map_vec_init '{"key": "account 3"}' --accountId scxtt.testnet
+near call contract.scxtt.testnet unordered_map_vec_init '{"key": "bob.near"}' --accountId scxtt.testnet
 ```
 unordered_map_vec_insert:
 ```
-near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_value": "slide 3"}' --accountId scxtt.testnet
+near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "bob.near", "insert_value": "slide 3"}' --accountId scxtt.testnet
 ```
 unordered_map_vec_extend
 ```
-near call contract.scxtt.testnet unordered_map_vec_insert '{"key": "account 3", "insert_values": ["slide 4", "slide 5", "slide 6"]}' --accountId scxtt.testnet
+near call contract.scxtt.testnet unordered_map_vec_extend '{"key": "bob.near", "insert_values": ["slide 4", "slide 5", "slide 6"]}' --accountId scxtt.testnet
 ```
 unordered_map_vec_get_ser:
 ```
-near view contract.scxtt.testnet unordered_map_vec_get_ser '{"key": "account 3"}'
+near view contract.scxtt.testnet unordered_map_vec_get_ser '{"key": "bob.near"}'
 ```
